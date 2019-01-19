@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="eng"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="delete">
+    <form th:action="@{'/items/{id}/delete' (id=${item.id})}" th:object="${item}" method="post">
+        <p>Vendor code: <span th:text="*{vendorCode}"></span></p>
+        <p>Nmae: <span th:text="*{name}"></span></p>
+        <input type="submit" value="Delete" />
+    </form>
+</div>
+</html>

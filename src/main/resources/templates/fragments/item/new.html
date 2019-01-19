@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="eng"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="new">
+    <form th:action="@{/items/new}" th:object="${item}" method="post">
+        <p>Vendor code: <input type="text" th:field="*{vendorCode}"/></p>
+        <p>Nmae: <input type="text" th:field="*{name}"/></p>
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+</html>

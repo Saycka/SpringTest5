@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="eng"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="edit">
+    <form th:action="@{'/items/{id}/edit' (id=${item.id})}" th:object="${item}" method="post">
+        <p>Vendor code: <input type="text" th:field="*{vendorCode}"/></p>
+        <p>Name: <input type="text" th:field="*{name}"/></p>
+        <p><input type="submit" value="Submit"/></p>
+    </form>
+</div>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/"
+>
+<div th:fragment="list">
+    <table>
+        <thead>
+        <th>ID</th>
+        <th>Name</th>
+        </thead>
+        <tbody>
+        <tr th:each="vendor : ${vendors}">
+            <td th:text="${vendor.id}"></td>
+            <td> <a th:href="@{'/vendors/{id}' (id=${vendor.id})}" th:text="${vendor.name}"></a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>

@@ -1,28 +1,25 @@
 package ru.manyatkin.SpringTest5.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name = "items2")
-public class Item {
+@Table(name = "characteristic")
+public class Characteristic {
 
     @Id
     @GeneratedValue
     private Integer id;
 
-    @Column(name = "vendor_code", unique = true)
-    @NotNull
-    private String vendorCode;
-
     private String name;
 
-    public Item() {
+    public Characteristic() {
     }
 
-    public Item(String vendorCode, String name) {
-        this.vendorCode = vendorCode;
+    public Characteristic(String name) {
         this.name = name;
     }
 
@@ -30,16 +27,8 @@ public class Item {
         return id;
     }
 
-    public String getVendorCode() {
-        return vendorCode;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setVendorCode(String vendorCode) {
-        this.vendorCode = vendorCode;
     }
 
     public void setName(String name) {
@@ -48,9 +37,8 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
+        return "Characteristic{" +
                 "id=" + id +
-                ", vendorCode='" + vendorCode + '\'' +
                 ", name='" + name + '\'' +
                 '}';
     }
@@ -59,12 +47,12 @@ public class Item {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Item item = (Item) o;
-        return Objects.equals(vendorCode, item.vendorCode);
+        Characteristic that = (Characteristic) o;
+        return Objects.equals(id, that.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(vendorCode);
+        return Objects.hash(id);
     }
 }

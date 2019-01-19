@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="eng"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="item">
+    <table>
+        <tbody>
+        <tr>
+            <td>Id</td>
+            <td th:text="${item.id}"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td th:text="${item.name}"></td>
+        </tr>
+        <tr>
+            <td>Vendor code</td>
+            <td th:text="${item.vendorCode}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:fragment="itemSpecifications">
+    <h2>Characteristics</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Characteristic</th>
+            <th>Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="specificationLine : ${specifications}">
+            <td th:text="${specificationLine.characteristic.name}"></td>
+            <td th:text="${specificationLine.value}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:fragment="itemPrices">
+    <h2>Prices</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Vendor</th>
+            <th>Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="price : ${itemPrices}">
+            <td th:text="${price.vendor.name}"></td>
+            <td th:text="${price.cost}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>

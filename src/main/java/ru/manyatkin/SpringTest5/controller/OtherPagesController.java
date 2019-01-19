@@ -5,12 +5,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class IndexController {
+public class OtherPagesController {
 
-    @GetMapping("/")
-    public String index (Model model) {
-        model.addAttribute("page_title", "Home page");
-        return "index";
+    @GetMapping("/contacts")
+    public String contacts (Model model) {
+        model.addAttribute("page_title", "Contacts");
+        return "pages/other_pages/contacts";
     }
-
 }
